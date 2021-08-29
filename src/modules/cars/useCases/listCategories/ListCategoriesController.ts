@@ -1,0 +1,13 @@
+import { Request, Response } from "express";
+import { container } from "tsyringe";
+
+import ListCategoriesService from "./ListCategoriesService";
+
+export default class ListCategoriesController {
+  async handle(request: Request, response: Response): Promise<Response> {
+    const listCategoriesService = container.resolve(ListCategoriesService);
+    const categories = await listCategoriesService.execute();
+
+    return response.status(200).json(categories);
+  }
+}
