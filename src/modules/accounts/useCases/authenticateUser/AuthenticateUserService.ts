@@ -28,7 +28,7 @@ export default class AuthenticateUserService {
 
     if (!user) throw new AppError("email or password incorrect!");
 
-    const passwordMatch = compare(password, user.password);
+    const passwordMatch = await compare(password, user.password);
 
     if (!passwordMatch) throw new AppError("email or password incorrect!");
 
