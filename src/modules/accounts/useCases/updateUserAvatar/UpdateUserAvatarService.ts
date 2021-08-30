@@ -1,9 +1,8 @@
+import { AppError } from "@errors/AppError";
+import User from "@modules/accounts/infra/typeorm/entities/User";
+import IUsersRepository from "@modules/accounts/repositories/IUsersRepository";
+import { deleteFile } from "@utils/file";
 import { inject, injectable } from "tsyringe";
-
-import { AppError } from "../../../../errors/AppError";
-import { deleteFile } from "../../../../utils/file";
-import User from "../../entities/User";
-import IUsersRepository from "../../repositories/IUsersRepository";
 
 interface IRequest {
   userID: string;

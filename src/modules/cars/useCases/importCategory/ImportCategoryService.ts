@@ -1,9 +1,8 @@
+import { AppError } from "@errors/AppError";
+import { ICategoriesRepository } from "@modules/cars/repositories/ICategoriesrepository";
 import csvParse from "csv-parse";
 import * as fs from "fs";
 import { inject, injectable } from "tsyringe";
-
-import { AppError } from "../../../../errors/AppError";
-import { ICategoriesRepository } from "../../repositories/ICategoriesrepository";
 
 interface IImportCategory {
   name: string;
