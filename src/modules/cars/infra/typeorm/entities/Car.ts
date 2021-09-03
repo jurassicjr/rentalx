@@ -3,7 +3,7 @@ import { v4 } from "uuid";
 
 import Category from "./Category";
 
-@Entity()
+@Entity("cars")
 export default class Car {
   @PrimaryGeneratedColumn()
   id: string;
