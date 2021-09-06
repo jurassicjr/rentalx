@@ -34,4 +34,26 @@ export default class FakeCarsRepository implements ICarsRepository {
   public async findByLicensePlate(licensePlate: string): Promise<Car> {
     return this.cars.find((car) => car.licensePlate === licensePlate);
   }
+
+  public async findAvailable(brand?: string, categoryId?: string, name?: string): Promise<Car[]> {
+    const availableCars = this.cars.filter((car) => {
+      if (car.available === true) {
+        if (
+          (brand && car.brand !== brand) ||
+          (categoryId && car.categoryId !== categoryId) ||
+          (name && car.name !== name)
+        ) {
+          return null;
+        }
+        return car;
+      }
+      return null;
+    });
+
+    return availableCars;
+  }
+
+  public async findById(id: string): Promise<Car> {
+    return this.cars.find((car) => car.id === id);
+  }
 }
