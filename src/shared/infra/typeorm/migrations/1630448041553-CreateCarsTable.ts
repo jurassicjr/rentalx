@@ -8,7 +8,7 @@ export default class CreateCarsTable1630448041553 implements MigrationInterface 
         columns: [
           {
             name: "id",
-            type: "varchar",
+            type: "uuid",
             isPrimary: true,
             isGenerated: true,
             generationStrategy: "uuid",
